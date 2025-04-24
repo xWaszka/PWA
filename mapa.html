@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map { height: 500px}
+    </style>
+</head>
+<body class="container text-center mt-5">
+    <h1 class=>Mapa</h1>
+    <div id="map"></div>
+    <script>
+        const map = L.map('map')
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+maxZoom: 19,
+
+attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+map.setView([50.06914, 19.9547], 16);
+let localization = L.marker([50.06914, 19.9547]).addTo(map);
+
+localization.bindPopup("UEK").openPopup();
+    </script>
+    <a href="index.html" class="m-2 btn btn-danger">Powrót</button>
+</body>
+</html>
