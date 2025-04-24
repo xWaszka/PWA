@@ -26,9 +26,13 @@
     </div>
 </div>
   <script>
-    function sendSOS() {
-      if (navigator.vibrate) {
-         navigator.vibrate([200, 200, 200, 600, 600, 600, 200, 200, 200]);
+    let patterns = [200, 200, 200, 600, 600, 600, 200, 200, 200];
+    function sendSOS(index) {
+      if (!window.navigator.vibrate) {
+         alert("Twoje urządzenie nie obsługuje api wibracji!");
+      }
+      else {
+        window.navigator.vibrate(patterns[index]);
       }
   }
 </script>
