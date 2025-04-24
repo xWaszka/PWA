@@ -3,7 +3,7 @@ self.addEventListener("install", event => {
         caches.open("pwa-cache").then(cache => {
             return cache.addAll([
                 "index.html",
-                "map.html",
+                "mapa.html",
                 "sos.html",
                 "manifest.json",
                 "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
