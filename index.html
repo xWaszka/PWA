@@ -22,20 +22,21 @@
     <p>Autorzy: Michał Warzocha, Kacper Kosek, Patryk Pacocha</p>
     <div class="mt-4">
         <a href="mapa.html" class="btn btn-primary">Mapa</a>
-        <button class="btn btn-danger" onclick="sendSOS()">SOS</button>
+        <button id="sosBtn" class="btn btn-danger">SOS</button>
     </div>
 </div>
   <script>
-    let patterns = [200, 200, 200, 600, 600, 600, 200, 200, 200];
-    function sendSOS(index) {
-      if (!window.navigator.vibrate) {
-         alert("Twoje urządzenie nie obsługuje api wibracji!");
-      }
-      else {
-        window.navigator.vibrate(patterns[index]);
-      }
-  }
-</script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sosBtn = document.getElementById("sosBtn");
+      sosBtn.addEventListener("click", () => {
+        if (navigator.vibrate) {
+          navigator.vibrate([200, 200, 200, 600, 600, 600, 200, 200, 200]);
+        } else {
+          alert("Twoje urządzenie nie obsługuje wibracji.");
+        }
+      });
+    });
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
