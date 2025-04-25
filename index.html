@@ -25,16 +25,14 @@
         <button id="sosBtn" class="btn btn-danger">SOS</button>
     </div>
 </div>
+ <button id="vibBtn">Wibruj!</button>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const sosBtn = document.getElementById("sosBtn");
-      sosBtn.addEventListener("click", () => {
-        if (navigator.vibrate) {
-          navigator.vibrate([200, 200, 200, 600, 600, 600, 200, 200, 200]);
-        } else {
-          alert("Twoje urządzenie nie obsługuje wibracji.");
-        }
-      });
+    document.getElementById("vibBtn").addEventListener("click", () => {
+      if (navigator.vibrate) {
+        navigator.vibrate([300, 100, 300]);
+      } else {
+        alert("Brak wsparcia dla wibracji");
+      }
     });
   </script>
   <script src="js/main.js"></script>
